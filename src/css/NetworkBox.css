@@ -1,0 +1,41 @@
+.network.event.list {
+  flex: 1;
+  padding: 30px;
+  margin: None;
+  border-radius: 10px;
+  box-shadow: None;
+  overflow-y: scroll;
+  height: 90vh;
+}
+
+.network.event.list.proxy{
+  flex: 1;
+  padding: None;
+  flex-direction: column;
+  border-left: 3px solid #FF6000;
+  margin: None;
+  border-radius: None;
+  box-shadow: None;
+  overflow-y: scroll;
+  height: 90vh;
+}
+
+.network.event.list.assistant{
+  flex: 1;
+  padding: None;
+  flex-direction: column;
+  border-left: 3px solid #FF6000;
+  margin: None;
+  border-radius: None;
+  box-shadow: None;
+  overflow-y: scroll;
+  height: 90vh;
+}
+
+.network.message {
+  margin: 5px;
+  border-radius: 2px;
+  background-color: #5b5454;
+  box-shadow: 0 0 10px #5b5454;
+  overflow-y: scroll;
+}
