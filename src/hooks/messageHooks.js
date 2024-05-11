@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { getMessages } from './api/fastapi/messages.js';
+import { useState } from 'react';
+import { getMessages } from '../api/fastapi/messages.js';
 
 
 function useCustomHook() {

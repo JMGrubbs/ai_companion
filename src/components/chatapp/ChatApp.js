@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import Message from './Message';
 // import NetworkBox from './networkbox/NetworkBox';
-import { select_proxy_agent } from '../api/fastapi/agents';
 
 function ChatApp({ messages, fetchMessageData, addMessage }) {
     const [newMessage, setNewMessage] = useState('');
     // const [localMessages, setLocalMessages] = useState([]);
 
     useState(async () => {
-        await select_proxy_agent();
         // const messages_response = await getMessages();
         // if (messages.length !== 0) {
         //     setLocalMessages(messages);
