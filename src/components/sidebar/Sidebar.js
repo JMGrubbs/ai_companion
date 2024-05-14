@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 // import { get_creations } from '../../api/fastapi/files';
 import useAgentHooks from '../../hooks/agentHooks';
 
-function Sidebar() {
-    const { agents, setProxy } = useAgentHooks();
+function Sidebar({ setProxy }) {
+    // console.log(setProxy)
+    const { agents } = useAgentHooks();
     // const [files, setFiles] = useState([]);
     // const [agentKeys, setAgentsKeys] = useState([]);
     // const [currAgent, setcurrAgent] = useState([]);

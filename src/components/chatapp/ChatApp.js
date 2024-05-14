@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Message from './Message';
 // import NetworkBox from './networkbox/NetworkBox';
 
-function ChatApp({ messages, fetchMessageData, addMessage }) {
+function ChatApp({ messages, proxy }) {
     const [newMessage, setNewMessage] = useState('');
     // const [localMessages, setLocalMessages] = useState([]);
-
+    if (proxy) {
+        console.log(proxy.name)
+    }
     useState(async () => {
         // const messages_response = await getMessages();
         // if (messages.length !== 0) {
@@ -32,6 +34,7 @@ function ChatApp({ messages, fetchMessageData, addMessage }) {
     return (
         <div className="chat-app">
             <div className={`chat box`}>
+                <h1 className='agent-header'>Agent: {proxy ? proxy.name : "None"}</h1>
                 <div className={`message-list`}>
                     {[...messages].map((message_obj, index) => (
                         <Message
@@ -54,6 +57,7 @@ function ChatApp({ messages, fetchMessageData, addMessage }) {
                     <button className='message-list-input button clear' onClick={handleClearMessages}>Clear</button>
                 </div>
             </div>
+
             {/* <div className={`network box`}>
                 <NetworkBox networkobject={networkEvents["proxy_network_messages"]} />
                 <NetworkBox networkobject={networkEvents["assistant_network_messages"]} />

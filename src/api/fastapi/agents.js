@@ -2,7 +2,7 @@ import apiClient from './api_service';
 
 export const get_agents = async () => {
     try {
-        const resposne = await apiClient.get("/agents/")
+        const resposne = await apiClient.get("/agents/get")
             .then(response => {
                 return response.data["response"]
             });
