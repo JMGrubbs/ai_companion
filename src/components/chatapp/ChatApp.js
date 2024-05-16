@@ -18,7 +18,13 @@ function ChatApp({ proxy, curThread }) {
 
     const handleSendMessage = async () => {
         if (newMessage) {
-            const newMessageObj = { text: newMessage, sender: 'user', thread: curThread.id, "proxy": proxy.agent_id };
+            const newMessageObj = {
+                text: newMessage,
+                sender: 'user',
+                thread: curThread?.thread_id ?? null,
+                proxy: proxy.agent_id
+            };
+            console.log(newMessageObj);
             setMessages([newMessageObj, ...messages]);
             setNewMessage('');
             const new_agent_message = await sendMessage(newMessageObj);

@@ -2,7 +2,7 @@ import apiClient from './api_service';
 
 export const getMessages = async (thread) => {
     try {
-        const resposne = await apiClient.get(`/messages/${thread.id}/get`)
+        const resposne = await apiClient.get(`/messages/${thread.thread_id}/get`)
             .then(response => {
                 return response.data["response"]
             });

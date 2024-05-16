@@ -3,17 +3,13 @@ import React, { useEffect, useState } from 'react';
 // import { get_creations } from '../../api/fastapi/files';
 import useAgentHooks from '../../hooks/agentHooks';
 import useThreadHooks from '../../hooks/threadHooks';
+import Thread from './thread';
 
 function Sidebar({ setProxy, setCurThread }) {
     const { agents } = useAgentHooks();
     const { threads } = useThreadHooks()
 
     // const [files, setFiles] = useState([]);
-    // const [agentKeys, setAgentsKeys] = useState([]);
-    // const [currAgent, setcurrAgent] = useState([]);
-    // const [currThread, setcurrThread] = useState([]);
-    // const [threadKeys, setThreadKeys] = useState([]);
-    // const [threads, setThreads] = useState([]);
 
     useState(async () => {
         // let creations_response = await get_creations();
@@ -46,6 +42,10 @@ function Sidebar({ setProxy, setCurThread }) {
         //     </div>)
     }
 
+    const handle_delete_thread = (event, index) => {
+        console.log('delete thread', index);
+    }
+
     return (
         <div className="sidebar">
             <h2>Agents</h2>
@@ -66,11 +66,9 @@ function Sidebar({ setProxy, setCurThread }) {
                 ))} */}
             </ul>
             <h2>Conversation</h2>
-            <ul>
+            <ul className={`thread-list`}>
                 {threads.map((thread, index) => (
-                    <li id={index} onClick={handle_thread_click} key={index}>
-                        <span style={{ userSelect: 'none' }}>{thread.name}</span>
-                    </li>
+                    <Thread thread={thread} index={index} handle_thread_click={handle_thread_click} handle_delete_thread={handle_delete_thread} />
                 ))}
             </ul>
         </div>

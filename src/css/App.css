@@ -11,5 +11,5 @@ body {
 .app-holder {
   display: flex;
   flex-direction: row;
+  height: 100vh; /* Make sure the flex container takes the full height of the viewport */
 }
-

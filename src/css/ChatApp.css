@@ -1,11 +1,12 @@
 .chat-app {
   display: flex;
   flex-direction: column;
+  margin-left: 275px;
   height: 100vh;
-  margin: 0 auto;
   border: 1px solid #3a3636;
   background-color: #3a3636;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
   color: #fff;
 }
 

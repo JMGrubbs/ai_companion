@@ -1,9 +1,9 @@
 import React from 'react';
-import Sidebar from './sidebar/Sidebar';
-import ChatApp from './chatapp/ChatApp';
 import '../css/Sidebar.css';
 import '../css/ChatApp.css';
 import '../css/NetworkBox.css';
+import Sidebar from './sidebar/Sidebar';
+import ChatApp from './chatapp/ChatApp';
 import useAgentHooks from '../hooks/agentHooks';
 import useThreadHooks from '../hooks/threadHooks';
 
