@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { getThreads } from '../api/fastapi/threads.js';
+import { get_threads } from '../api/fastapi/threads.js';
 
 
 function useThreadHooks() {
     const [threads, setThreads] = useState([]);
+    const [curThread, setCurThread] = useState(null);
 
     useState(async () => {
-        const threads_response = await getThreads();
+        const threads_response = await get_threads();
         setThreads(threads_response);
     }, []);
 
@@ -19,7 +20,7 @@ function useThreadHooks() {
     //     setMessages([...messages, message]);
     // };
 
-    return { threads, setThreads };
+    return { threads, curThread, setCurThread };
 }
 
 export default useThreadHooks;

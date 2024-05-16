@@ -1,46 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Message from './Message';
+import { getMessages, sendMessage } from '../../api/fastapi/messages';
 // import NetworkBox from './networkbox/NetworkBox';
 
-function ChatApp({ messages, proxy }) {
+function ChatApp({ proxy, curThread }) {
+    const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
-    // const [localMessages, setLocalMessages] = useState([]);
-    if (proxy) {
-        console.log(proxy.name)
-    }
-    useState(async () => {
-        // const messages_response = await getMessages();
-        // if (messages.length !== 0) {
-        //     setLocalMessages(messages);
-        // }
-    }, []);
+    useEffect(() => {
+        if (curThread) {
+            const fetchMessages = async () => {
+                const messages = await getMessages(curThread);
+                setMessages(messages);
+            };
+            fetchMessages();
+        }
+    }, [curThread]);
 
-    const handleSendMessage = async (event) => {
+    const handleSendMessage = async () => {
         if (newMessage) {
-            let temp = event.currentTarget.getAttribute('id');
-            console.log('newMessage:', newMessage, temp);
-            // addMessage({ content: [{ text: { value: newMessage } }, { type: 'text' }], assistant_id: null });
-            console.log(messages);
+            const newMessageObj = { text: newMessage, sender: 'user', thread: curThread.id, "proxy": proxy.agent_id };
+            setMessages([newMessageObj, ...messages]);
+            setNewMessage('');
+            const new_agent_message = await sendMessage(newMessageObj);
+            setMessages(new_agent_message)
 
-            setNewMessage(null);
         }
     };
 
-
-    async function handleClearMessages() {
-        return;
-    }
+    const handleClearMessages = async () => {
+        // Add clear message logic if necessary
+    };
 
     return (
         <div className="chat-app">
             <div className={`chat box`}>
                 <h1 className='agent-header'>Agent: {proxy ? proxy.name : "None"}</h1>
                 <div className={`message-list`}>
-                    {[...messages].map((message_obj, index) => (
+                    {messages.map((message_obj, index) => (
                         <Message
                             key={index}
-                            text={message_obj.content[0].text.value}
-                            sender={message_obj.assistant_id ? 'agent' : 'user'}
+                            text={message_obj.text}
+                            sender={message_obj.sender}
                         />
                     ))}
                 </div>
@@ -50,7 +50,7 @@ function ChatApp({ messages, proxy }) {
                         placeholder="Type your message..."
                         value={newMessage}
                         onChange={(e) => {
-                            setNewMessage(e.target.value)
+                            setNewMessage(e.target.value);
                         }}
                     />
                     <button className='message-list-input button send' onClick={handleSendMessage}>Send</button>

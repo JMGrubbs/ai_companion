@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 // import { get_agents } from '../../api/fastapi/agents';
 // import { get_creations } from '../../api/fastapi/files';
 import useAgentHooks from '../../hooks/agentHooks';
+import useThreadHooks from '../../hooks/threadHooks';
 
-function Sidebar({ setProxy }) {
-    // console.log(setProxy)
+function Sidebar({ setProxy, setCurThread }) {
     const { agents } = useAgentHooks();
+    const { threads } = useThreadHooks()
+
     // const [files, setFiles] = useState([]);
     // const [agentKeys, setAgentsKeys] = useState([]);
     // const [currAgent, setcurrAgent] = useState([]);
@@ -33,12 +35,8 @@ function Sidebar({ setProxy }) {
     };
 
     const handle_thread_click = async (event) => {
-        // const thread_key_index = event.currentTarget.getAttribute('id');
-        // let clicked_thread = threads[threadKeys[thread_key_index]];
-        // let selected_thread = await select_proxy_thread(clicked_thread.id);
-        // setcurrThread(selected_thread);
-        // fetchMessageData();
-        // setMessages(selected_thread.messages);
+        const thread_index = event.currentTarget.getAttribute('id');
+        setCurThread(threads[thread_index]);
     };
 
     const handleLinkClick = (event) => {
@@ -69,12 +67,11 @@ function Sidebar({ setProxy }) {
             </ul>
             <h2>Conversation</h2>
             <ul>
-                {/* {threadKeys.map((thread_id, index) => (
+                {threads.map((thread, index) => (
                     <li id={index} onClick={handle_thread_click} key={index}>
-                        {thread_id}
-                        <a href={`/creations/${file}`} download>{file}</a>
+                        <span style={{ userSelect: 'none' }}>{thread.name}</span>
                     </li>
-                ))} */}
+                ))}
             </ul>
         </div>
     );

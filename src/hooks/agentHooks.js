@@ -9,6 +9,7 @@ function useAgentHooks() {
     useState(async () => {
         const agents_response = await get_agents();
         setAgents(agents_response);
+        setProxy(agents_response[0]);
     }, []);
 
 

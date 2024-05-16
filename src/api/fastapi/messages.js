@@ -1,33 +1,31 @@
-import axios from 'axios';
+import apiClient from './api_service';
 
-const fastApiUrl = process.env.REACT_APP_FASTAPI_URL_PROD;
-const apiKey = process.env.REACT_APP_API_KEY;
-
-export const getMessages = async () => {
+export const getMessages = async (thread) => {
     try {
-        const headers = {
-            'Content-Type': 'application/json',
-            "api-key": apiKey,
-        };
-        const resposne = await axios.get(fastApiUrl + "/agent/proxy/messages", { headers: headers })
+        const resposne = await apiClient.get(`/messages/${thread.id}/get`)
             .then(response => {
-                return response.data["data"]
+                return response.data["response"]
             });
         return resposne;
     } catch (error) {
-        console.error('Error fetching data using message/get:', error);
-        return ["Error: API Error"];
+        console.error('Error fetching data using messages/get:', error);
+        return [];
+    }
+};
+
+export const sendMessage = async (message) => {
+    try {
+        const response = await apiClient.post("/messages/add", message);
+        return response.data["response"];
+    } catch (error) {
+        console.error('Error fetching data using addMessage:', error);
+        return null;
     }
 };
 
 export const deleteMessages = async () => {
     try {
-        const headers = {
-            'Content-Type': 'application/json',
-            "api-key": apiKey,
-        };
-
-        const response = await axios.delete(fastApiUrl + "/deletemessages", { headers: headers });
+        const response = await apiClient.delete("/deletemessages",);
         return response.data["response"];
     } catch (error) {
         console.error('Error fetching data using deleteMessage:', error);

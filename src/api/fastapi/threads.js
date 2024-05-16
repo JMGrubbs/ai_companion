@@ -9,9 +9,9 @@ export const get_threads = async () => {
             'Content-Type': 'application/json',
             "api-key": apiKey,
         };
-        const resposne = await axios.get(fastApiUrl + "/thread/get", { headers: headers })
+        const resposne = await axios.get(fastApiUrl + "/threads/get", { headers: headers })
             .then(response => {
-                return response.data["data"]
+                return response.data["response"]
             });
         return resposne;
     } catch (error) {

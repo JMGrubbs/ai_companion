@@ -5,7 +5,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const apiClient = axios.create({
     baseURL: fastApiUrl,
-    timeout: 2000,
+    timeout: 20000,
     headers: { 'api-key': apiKey, 'Content-Type': 'application/json' }
 });
 

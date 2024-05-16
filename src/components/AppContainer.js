@@ -1,25 +1,21 @@
-// import ChatApp from './chatapp/ChatApp';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Sidebar from './sidebar/Sidebar';
 import ChatApp from './chatapp/ChatApp';
 import '../css/Sidebar.css';
 import '../css/ChatApp.css';
 import '../css/NetworkBox.css';
-// import useAgentHooks from '../hooks/agentHooks';
 import useAgentHooks from '../hooks/agentHooks';
-
+import useThreadHooks from '../hooks/threadHooks';
 
 
 function AppContainer() {
-    // const { threads, setThread } = useCustomHook()
-    // const { agents, setAgents } = useAgentHooks()
+    const { curThread, setCurThread } = useThreadHooks()
     const { proxy, setProxy } = useAgentHooks();
     return (
         <div className="App">
             <main className='app-holder'>
-                <Sidebar setProxy={setProxy} />
-                <ChatApp messages={[]} proxy={proxy} />
-                {/* <ChatApp messages={[messages]} fetchMessageData={fetchMessageData} addMessage={addMessage} /> */}
+                <Sidebar setProxy={setProxy} setCurThread={setCurThread} />
+                <ChatApp proxy={proxy} curThread={curThread} />
             </main>
         </div>
     );
