@@ -1,0 +1,37 @@
+.three-dot-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(241, 103, 24); /* Change to the desired color */
+  border-radius: 50%;
+  margin: 0 2px; /* Space between dots */
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: rgb(39, 39, 39);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 8px; /* Add this line for rounded corners */
+}
+
+.dropdown-menu span {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: rgb(241, 103, 24); /* Change to the desired color */
+}
+
+.dropdown-menu a:hover {
+  background-color: #716f6f; /* Change to the desired hover color */
+  border-radius: 8px; /* Add this line for rounded corners */
+}

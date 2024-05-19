@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import { get_agents } from '../../api/fastapi/agents';
 // import { get_creations } from '../../api/fastapi/files';
 import useAgentHooks from '../../hooks/agentHooks';
@@ -11,16 +11,6 @@ function Sidebar({ setProxy, setCurThread }) {
 
     // const [files, setFiles] = useState([]);
 
-    useState(async () => {
-        // let creations_response = await get_creations();
-        // let agents_response = await get_agents();
-        // let threads_response = await get_threads();
-        // setThreads(threads_response);
-        // setThreadKeys(Object.keys(threads_response));
-
-        // setFiles(creations_response);
-    }, []);
-
 
 
     const handle_agent_click = async (event) => {
@@ -30,9 +20,8 @@ function Sidebar({ setProxy, setCurThread }) {
 
     };
 
-    const handle_thread_click = async (event) => {
-        const thread_index = event.currentTarget.getAttribute('id');
-        setCurThread(threads[thread_index]);
+    const handle_thread_click = async (event, index) => {
+        setCurThread(threads[index]);
     };
 
     const handleLinkClick = (event) => {
@@ -42,6 +31,9 @@ function Sidebar({ setProxy, setCurThread }) {
         //     </div>)
     }
 
+    const handle_thread_name_change = async (e, index) => {
+        console.log('changing thread name', index);
+    }
     const handle_delete_thread = async (e, index) => {
         await deleteThread(index);
     }
@@ -68,7 +60,7 @@ function Sidebar({ setProxy, setCurThread }) {
             <h2>Conversation</h2>
             <ul className={`thread-list`}>
                 {threads.map((thread, index) => (
-                    <Thread thread={thread} index={index} handle_thread_click={handle_thread_click} handle_delete_thread={handle_delete_thread} />
+                    <Thread key={index} thread={thread} index={index} handle_thread_click={handle_thread_click} handle_delete_thread={handle_delete_thread} handle_thread_name_change={handle_thread_name_change} />
                 ))}
             </ul>
         </div>

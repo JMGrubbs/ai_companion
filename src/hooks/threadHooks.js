@@ -11,15 +11,11 @@ function useThreadHooks() {
         setThreads(threads_response);
     }, []);
 
-    // const fetchMessageData = async () => {
-    //     const messages_response = await getMessages();
-    //     setMessages(messages_response);
-    // };
-
-    // const addMessage = (message) => {
-    //     setMessages([...messages, message]);
-    // };
-
+    const changeThreadName = async (index, new_name) => {
+        const thread = threads[index];
+        thread.name = new_name;
+        setThreads([...threads]);
+    }
     const deleteThread = async (index) => {
         const deleted_thread = threads.splice(index, 1)[0]
         await delete_thread(deleted_thread.id)
