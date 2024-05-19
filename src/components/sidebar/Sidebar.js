@@ -7,7 +7,7 @@ import Thread from './thread';
 
 function Sidebar({ setProxy, setCurThread }) {
     const { agents } = useAgentHooks();
-    const { threads } = useThreadHooks()
+    const { threads, deleteThread } = useThreadHooks()
 
     // const [files, setFiles] = useState([]);
 
@@ -42,8 +42,8 @@ function Sidebar({ setProxy, setCurThread }) {
         //     </div>)
     }
 
-    const handle_delete_thread = (event, index) => {
-        console.log('delete thread', index);
+    const handle_delete_thread = async (e, index) => {
+        await deleteThread(index);
     }
 
     return (

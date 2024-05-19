@@ -1,15 +1,8 @@
-import axios from 'axios';
-
-const fastApiUrl = process.env.REACT_APP_FASTAPI_URL_PROD;
-const apiKey = process.env.REACT_APP_API_KEY;
+import apiClient from './api_service';
 
 export const get_threads = async () => {
     try {
-        const headers = {
-            'Content-Type': 'application/json',
-            "api-key": apiKey,
-        };
-        const resposne = await axios.get(fastApiUrl + "/threads/get", { headers: headers })
+        const resposne = await apiClient.get("/threads/get")
             .then(response => {
                 return response.data["response"]
             });
@@ -22,12 +15,7 @@ export const get_threads = async () => {
 
 export const select_proxy_thread = async (thread_id) => {
     try {
-        const headers = {
-            'Content-Type': 'application/json',
-            "api-key": apiKey,
-        };
-        let url = fastApiUrl + "/agent/proxy/thread/" + thread_id;
-        const resposne = await axios.post(url, {}, { headers: headers })
+        const resposne = await apiClient.post("/agent/proxy/thread/" + thread_id, {})
             .then(response => {
                 return response.data
             });
@@ -37,3 +25,17 @@ export const select_proxy_thread = async (thread_id) => {
         return [];
     }
 };
+
+export const delete_thread = async (thread_id) => {
+    console.log("thread_id", thread_id)
+    try {
+        const resposne = await apiClient.delete(`/threads/${thread_id}/delete`)
+            .then(response => {
+                return response.data
+            });
+        return resposne;
+    } catch (error) {
+        console.error('Error fetching thread data:', error);
+        return [];
+    }
+}

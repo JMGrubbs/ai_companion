@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { get_threads } from '../api/fastapi/threads.js';
+import { get_threads, delete_thread } from '../api/fastapi/threads.js';
 
 
 function useThreadHooks() {
@@ -20,7 +20,13 @@ function useThreadHooks() {
     //     setMessages([...messages, message]);
     // };
 
-    return { threads, curThread, setCurThread };
+    const deleteThread = async (index) => {
+        const deleted_thread = threads.splice(index, 1)[0]
+        await delete_thread(deleted_thread.id)
+        setThreads([...threads]);
+    }
+
+    return { threads, curThread, setCurThread, deleteThread };
 }
 
 export default useThreadHooks;
