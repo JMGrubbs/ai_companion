@@ -15,7 +15,7 @@
   border-bottom: 1px solid #444;
 }
 
-.chat.box {
+.chat-box {
   display: flex;
   flex-direction: column;
   width: 50vw;
@@ -70,7 +70,7 @@
   background-color: #3a3636;
 }
 
-input[type="text"] {
+.message-list-input input[type="text"] {
   flex: 1;
   border: 1px solid #151414;
   border-radius: 4px;
@@ -80,7 +80,7 @@ input[type="text"] {
   color: #fff;
 }
 
-.message-list-input.button {
+.message-list-input .button {
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -89,15 +89,15 @@ input[type="text"] {
   cursor: pointer;
 }
 
-.message-list-input.button.send {
+.message-list-input .button.send {
   background-color: #FF6000;
 }
 
-.message-list-input.button.clear {
+.message-list-input .button.clear {
   background-color: #4d4d4d;
 }
 
-.network.box {
+.network-box {
   flex: 1;
   display: flex;
   border: 1px solid #3a3636;

@@ -27,6 +27,9 @@ function Sidebar({ setProxy, setCurThread }) {
         await deleteThread(index);
     };
 
+    const createNewThread = async () => {
+        setCurThread(null);
+    }
     return (
         <div className="sidebar">
             <AgentList agents={agents} handleAgentClick={handleAgentClick} />
@@ -36,6 +39,7 @@ function Sidebar({ setProxy, setCurThread }) {
                 handleThreadClick={handleThreadClick}
                 handleDeleteThread={handleDeleteThread}
                 handleThreadNameChange={handleThreadNameChange}
+                createNewThread={createNewThread}
             />
         </div>
     );
