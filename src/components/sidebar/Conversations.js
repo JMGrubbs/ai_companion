@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Thread from './Thread';
 
 const ConversationList = ({ threads, handleThreadClick, handleDeleteThread, handleThreadNameChange, createNewThread }) => {
@@ -6,7 +7,9 @@ const ConversationList = ({ threads, handleThreadClick, handleDeleteThread, hand
         <div className="sidebar-holder">
             <div className="title-holder">
                 <h2>Conversation</h2>
-                <button onClick={(e) => createNewThread(e)} className="new-button">+</button>
+                <Link to="/thread/new">
+                    <button onClick={(e) => createNewThread(e)} className="new-button">+</button>
+                </Link>
             </div>
             <ul className="thread-list">
                 {threads.map((thread, index) => (

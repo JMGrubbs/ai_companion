@@ -25,3 +25,29 @@ export const send_proxy_message = async (message) => {
         return [];
     }
 };
+
+export const create_agent = async (newAgent) => {
+    try {
+        const resposne = await apiClient.post("/agents/create", newAgent)
+            .then(response => {
+                return response.data
+            });
+        return resposne;
+    } catch (error) {
+        console.error('Error fetching agent data:', error);
+        return [];
+    }
+}
+
+export const delete_agent = async (agent) => {
+    try {
+        const resposne = await apiClient.delete("/agents/delete", { data: agent })
+            .then(response => {
+                return response.data
+            });
+        return resposne;
+    } catch (error) {
+        console.error('Error fetching agent data:', error);
+        return [];
+    }
+}

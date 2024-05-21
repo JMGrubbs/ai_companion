@@ -1,4 +1,5 @@
 import React from 'react';
+import './Sidebar.css';
 import useAgentHooks from '../../hooks/agentHooks';
 import useThreadHooks from '../../hooks/threadHooks';
 import AgentList from './AgentList';
@@ -6,7 +7,7 @@ import DownloadFiles from './DownloadFiles';
 import ConversationList from './Conversations';
 
 function Sidebar({ setProxy, setCurThread }) {
-    const { agents } = useAgentHooks();
+    const { agents, deleteAgent } = useAgentHooks();
     const { threads, deleteThread } = useThreadHooks();
 
     const handleAgentClick = async (event) => {
@@ -30,9 +31,17 @@ function Sidebar({ setProxy, setCurThread }) {
     const createNewThread = async () => {
         setCurThread(null);
     }
+
+    const handleAgentDelete = async (e, index) => {
+        deleteAgent(index)
+    }
+
+    const createNewAgent = async () => {
+        console.log('creating new agent');
+    };
     return (
         <div className="sidebar">
-            <AgentList agents={agents} handleAgentClick={handleAgentClick} />
+            <AgentList agents={agents} handleAgentClick={handleAgentClick} createNewAgent={createNewAgent} handleAgentDelete={handleAgentDelete} />
             <DownloadFiles />
             <ConversationList
                 threads={threads}

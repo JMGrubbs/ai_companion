@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Message from './Message';
 import MessageInput from './MessageInput';
 import { getMessages, sendMessage } from '../../api/fastapi/messages';
+import './ChatApp.css';
+
 
 function ChatApp({ proxy, curThread }) {
     const [messages, setMessages] = useState([]);

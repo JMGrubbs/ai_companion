@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ThreeDotDropdown from '../actions/ActionDropdown';
 
-function Agent({ index, agent, handleAgentClick }) {
+function Agent({ index, agent, handleAgentClick, handleAgentDelete }) {
     const [actions, setActions] = useState([]);
 
     useEffect(() => {
-        setActions([{ action: "handleDeleteThread", text: 'Delete' }])
-    }, []);
+        setActions([{ action: handleAgentDelete, text: 'Delete' }])
+    }, [handleAgentDelete]);
 
     return (
         <div className="item-holder">

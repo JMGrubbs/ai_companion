@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ThreeDotDropdown from '../actions/ActionDropdown';
 
 function Thread({ thread, index, handleThreadClick, handleDeleteThread, handleThreadNameChange }) {
@@ -10,12 +11,14 @@ function Thread({ thread, index, handleThreadClick, handleDeleteThread, handleTh
 
     return (
         <div className="item-holder">
-            <li id={index} className={`list-item`}>
-                <span style={{ userSelect: 'none' }} onClick={(e) => handleThreadClick(e, index)} key={index} >{thread.name}</span>
-                <span>
-                    <ThreeDotDropdown actions={actions} identity={index} />
-                </span>
-            </li>
+            <Link to={`/thread/${index}`} style={{ textDecoration: 'none' }}>
+                <li id={index} className={`list-item`}>
+                    <span style={{ userSelect: 'none' }} onClick={(e) => handleThreadClick(e, index)} key={index} >{thread.name}</span>
+                    <span>
+                        <ThreeDotDropdown actions={actions} identity={index} />
+                    </span>
+                </li>
+            </Link>
         </div>
     );
 }
