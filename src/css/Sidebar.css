@@ -1,4 +1,3 @@
-/* src/Sidebar.css */
 .sidebar {
   background-color: #1d1b1b;
   color: rgb(241, 103, 24);
@@ -15,29 +14,26 @@
 }
 
 ul {
-  list-style: none; /* Remove default bullet points */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Style for list items */
 ul li {
-  padding: 10px 0; /* Add some vertical spacing between list items */
+  padding: 10px 0;
   margin: 5px;
-  color: rgb(235, 144, 90); /* Or any color you had for the text */
-  border-bottom: 1px solid #ddd; /* Add a horizontal line as a separator */
+  color: rgb(235, 144, 90);
+  border-bottom: 1px solid #ddd;
 }
 
-/* Style for the last list item (removing the border) */
 ul li:last-child {
   border-bottom: none;
 }
 
-/* Hover effect for list items */
 ul li:hover {
-  background-color: #6d6d6d; /* Change background color on hover */
-  border-radius: 10px; /* Add rounded corners on hover */
-  transition: background-color 0.3s, border-radius 0.3s; /* Smooth transition effect */
+  background-color: #6d6d6d;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-radius 0.3s;
 }
 
 .thread-list {
@@ -53,11 +49,11 @@ ul li:hover {
 }
 
 .delete-thread-item {
-  background-color: #f44336; /* Red background */
+  background-color: #f44336;
   color: white;
   border: none;
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow */
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   padding: 5px 10px;
   cursor: pointer;
   position: absolute;
@@ -65,5 +61,30 @@ ul li:hover {
 }
 
 .delete-thread-item:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+  background-color: #d32f2f;
+}
+
+.conversation-title-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.conversation-title-holder h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.new-conversation-button {
+  background-color: rgb(241, 103, 24);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-conversation-button:hover {
+  background-color: #d32f2f;
 }
