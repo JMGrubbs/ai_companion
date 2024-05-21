@@ -3,10 +3,10 @@ import Thread from './Thread';
 
 const ConversationList = ({ threads, handleThreadClick, handleDeleteThread, handleThreadNameChange, createNewThread }) => {
     return (
-        <div className="conversation-holder">
-            <div className="conversation-title-holder">
+        <div className="sidebar-holder">
+            <div className="title-holder">
                 <h2>Conversation</h2>
-                <button onClick={(e) => createNewThread(e)} className="new-conversation-button">+</button>
+                <button onClick={(e) => createNewThread(e)} className="new-button">+</button>
             </div>
             <ul className="thread-list">
                 {threads.map((thread, index) => (

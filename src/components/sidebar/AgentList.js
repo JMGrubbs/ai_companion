@@ -1,14 +1,16 @@
 import React from 'react';
+import Agent from './Agent';
 
-const AgentList = ({ agents, handleAgentClick }) => {
+const AgentList = ({ agents, handleAgentClick, createNewAgent }) => {
     return (
-        <div>
-            <h2>Agents</h2>
+        <div className="sidebar-holder">
+            <div className="title-holder">
+                <h2>Agents</h2>
+                <button onClick={(e) => createNewAgent(e)} className="new-button">+</button>
+            </div>
             <ul>
                 {agents.map((agent, index) => (
-                    <li onClick={handleAgentClick} key={index} id={index}>
-                        <span style={{ userSelect: 'none' }}>{agent.name}</span>
-                    </li>
+                    <Agent index={index} key={index} agent={agent} handleAgentClick={handleAgentClick} />
                 ))}
             </ul>
         </div>

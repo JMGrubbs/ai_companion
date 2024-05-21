@@ -9,8 +9,8 @@ function Thread({ thread, index, handleThreadClick, handleDeleteThread, handleTh
     }, [handleDeleteThread, handleThreadNameChange]);
 
     return (
-        <div className="thread-item">
-            <li id={index} className={`thread-list-item`}>
+        <div className="item-holder">
+            <li id={index} className={`list-item`}>
                 <span style={{ userSelect: 'none' }} onClick={(e) => handleThreadClick(e, index)} key={index} >{thread.name}</span>
                 <span>
                     <ThreeDotDropdown actions={actions} identity={index} />
