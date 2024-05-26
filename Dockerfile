@@ -1,30 +1,23 @@
-# Use an official Node runtime as a parent image
-FROM node:14
+# Stage 1: Build the React app
+FROM node:14 AS build
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy package.json and package-lock.json (or yarn.lock) into the working directory
-COPY package*.json ./
-# or if you use yarn:
-# COPY package.json yarn.lock ./
-
-# Install dependencies
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
-# or if you use yarn:
-# RUN yarn install
 
-# Bundle app source inside Docker image
-COPY . .
-
-# Build your app
+COPY . ./
 RUN npm run build
 
-# Install a server to serve your app
-RUN npm install -g serve
+# Stage 2: Serve the React app using Nginx
+FROM nginx:alpine
 
-# Command to run your app
-CMD ["serve", "-s", "build", "-l", "3000"]
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose port 3000 to the outside once the container is running
-EXPOSE 3000
+# Copy custom nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
