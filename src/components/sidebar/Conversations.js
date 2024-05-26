@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Thread from './Thread.js';
+import Thread from './Thread';
 
 const ConversationList = ({ threads, handleThreadClick, handleDeleteThread, handleThreadNameChange, createNewThread }) => {
     return (
