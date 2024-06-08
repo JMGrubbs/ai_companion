@@ -1,6 +1,7 @@
 # Stage 1: Build the React app
 FROM node:18-alpine as build
 
+# Set the working directory inside the container
 WORKDIR /app
 
 COPY package.json ./
