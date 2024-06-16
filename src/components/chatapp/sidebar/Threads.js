@@ -7,7 +7,7 @@ const ConversationList = ({ threads, handleThreadClick, handleDeleteThread, hand
         <div className="sidebar-holder">
             <div className="title-holder">
                 <h2>Conversation</h2>
-                <Link to="/thread/new">
+                <Link to="/ai-chat/thread/new">
                     <button onClick={(e) => createNewThread(e)} className="new-button">+</button>
                 </Link>
             </div>

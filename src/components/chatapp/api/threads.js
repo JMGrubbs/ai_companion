@@ -1,4 +1,4 @@
-import apiClient from './api_service';
+import apiClient from '../../../api/api_service';
 
 export const get_threads = async () => {
     try {
@@ -14,6 +14,7 @@ export const get_threads = async () => {
 };
 
 export const select_proxy_thread = async (thread_id) => {
+    console.log("SELECTING THREAD", thread_id)
     try {
         const resposne = await apiClient.post("/agent/proxy/thread/" + thread_id, {})
             .then(response => {

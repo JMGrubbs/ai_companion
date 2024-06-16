@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Message from './Message';
-import MessageInput from './MessageInput';
-import { getMessages, sendMessage } from '../../api/fastapi/messages';
+import Message from './messages/Message';
+import MessageInput from './messages/MessageInput';
+import { getMessages, sendMessage } from './api/messages';
 import './ChatApp.css';
 
 

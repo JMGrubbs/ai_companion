@@ -1,4 +1,4 @@
-import apiClient from './api_service';
+import apiClient from '../../../api/api_service';
 
 export const get_agents = async () => {
     try {

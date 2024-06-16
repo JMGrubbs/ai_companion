@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './AppContainer.css';
-import Sidebar from './sidebar/Sidebar';
-import ChatApp from './chatapp/ChatApp';
-import NewAgent from './agents/NewAgent';
-import useAgentHooks from '../hooks/agentHooks';
-import useThreadHooks from '../hooks/threadHooks';
-import PasswordEntry from './PasswordEntry';
+import ChatAppHome from './chatapp/ChatAppHome';
+import CreateAgent from './chatapp/agents/NewAgent';
+import Home from './websight/home';
+import PasswordEntry from './security/PasswordEntry';
 
 function AppContainer() {
-    const [entry, setEntry] = useState(false);
-    const { curThread, setCurThread } = useThreadHooks();
-    const { proxy, setProxy } = useAgentHooks();
+    const [entry, setEntry] = useState(true);
 
     const handlePasswordSubmit = (event_pass) => {
         if (event_pass === 'pass1299') {
@@ -22,14 +18,13 @@ function AppContainer() {
         <Router>
             <div className="App">
                 {entry ? <main className="app-holder">
-                    <div className={`sidebar-holder`}>
-                        <Sidebar setProxy={setProxy} setCurThread={setCurThread} />
-                    </div>
                     <div className="divider">
                         <Routes>
-                            <Route path="/" element={<ChatApp proxy={proxy} curThread={curThread} />} />
-                            <Route path="/thread/:id" element={<ChatApp proxy={proxy} curThread={curThread} />} />
-                            <Route path="/agent/new" element={<NewAgent />} />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/ai-chat" element={<ChatAppHome />} />
+                            <Route path="/ai-chat/thread/:id" element={<ChatAppHome />} />
+                            <Route path="/ai-chat/agent/new" element={<CreateAgent />} />
+                            <Route path="/*" element={<Navigate to="/home" />} />
                         </Routes>
                     </div>
                 </main> :

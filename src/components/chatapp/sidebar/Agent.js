@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ThreeDotDropdown from '../actions/ActionDropdown';
+import ThreeDotDropdown from '../../actions/ActionDropdown';
 
 function Agent({ index, agent, handleAgentClick, handleAgentDelete }) {
     const [actions, setActions] = useState([]);

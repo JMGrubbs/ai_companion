@@ -1,25 +1,25 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Agents.css";
-import useAgentHooks from "../../hooks/agentHooks";
+import useAgentHooks from "../hooks/agentHooks";
 
 const NewAgent = () => {
     const [agentName, setAgentName] = useState("");
     const [agentDescription, setAgentDescription] = useState("");
     const [agentCapabilities, setAgentCapabilities] = useState("");
     const { createNewAgent } = useAgentHooks();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newAgent = {
-            "agentName": agentName,
-            "agentDescription": agentDescription,
-            "agentInstructions": agentCapabilities,
-            "model": "gpt-3.5-turbo",
-        }
-        createNewAgent(newAgent);
-        // setAgentName("");
-        // setAgentDescription("");
-        // setAgentCapabilities("");
+            agentName,
+            agentDescription,
+            agentInstructions: agentCapabilities,
+            model: "gpt-3.5-turbo",
+        };
+        await createNewAgent(newAgent);
+        navigate("/ai-chat");
     };
 
     return (
