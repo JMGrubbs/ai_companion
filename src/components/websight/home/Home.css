@@ -1,3 +1,40 @@
+
 .home-summary {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
     width: 500px;
+}
+
+.home-summary h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.home-summary h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.home-summary p {
+    margin-bottom: 1em;
+}
+
+.home-summary ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.home-summary ul ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.home-summary ul li {
+    margin-bottom: 0.5em;
+}
+
+.home-summary span {
+    display: block;
 }

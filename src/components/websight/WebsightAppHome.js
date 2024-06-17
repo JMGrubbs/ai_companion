@@ -1,5 +1,5 @@
 import Sidebar from './sidebar/WebsightSidebar';
-import Home from './home/Home';
+import Home from './home/home.js';
 
 function WebsightAppHome() {
     return (
