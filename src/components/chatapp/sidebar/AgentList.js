@@ -7,7 +7,7 @@ const AgentList = ({ agents, handleAgentClick, createNewAgent, handleAgentDelete
         <div className="sidebar-holder">
             <div className="title-holder">
                 <h2>Agents</h2>
-                <Link to="/agent/new">
+                <Link to="/ai-chat/agent/new">
                     <button onClick={(e) => createNewAgent(e)} className="new-button">+</button>
                 </Link>
             </div>

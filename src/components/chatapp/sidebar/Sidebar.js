@@ -1,10 +1,9 @@
 import React from 'react';
-import './Sidebar.css';
-import useAgentHooks from '../../hooks/agentHooks';
-import useThreadHooks from '../../hooks/threadHooks';
+import useAgentHooks from '../hooks/agentHooks';
+import useThreadHooks from '../hooks/threadHooks';
 import AgentList from './AgentList';
 import DownloadFiles from './DownloadFiles';
-import ConversationList from './Conversations';
+import Threads from './Threads';
 
 function Sidebar({ setProxy, setCurThread }) {
     const { agents, deleteAgent } = useAgentHooks();
@@ -40,10 +39,10 @@ function Sidebar({ setProxy, setCurThread }) {
         console.log('creating new agent');
     };
     return (
-        <div className="sidebar">
+        <div className={`sidebar`}>
             <AgentList agents={agents} handleAgentClick={handleAgentClick} createNewAgent={createNewAgent} handleAgentDelete={handleAgentDelete} />
             <DownloadFiles />
-            <ConversationList
+            <Threads
                 threads={threads}
                 handleThreadClick={handleThreadClick}
                 handleDeleteThread={handleDeleteThread}

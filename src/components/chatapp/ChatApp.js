@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Message from './Message';
-import MessageInput from './MessageInput';
-import { getMessages, sendMessage } from '../../api/fastapi/messages';
-import './ChatApp.css';
+import Message from './messages/Message';
+import MessageInput from './messages/MessageInput';
+import { getMessages, sendMessage } from './api/messages';
 
 
 function ChatApp({ proxy, curThread }) {
@@ -41,7 +40,7 @@ function ChatApp({ proxy, curThread }) {
     };
 
     return (
-        <div className="chat-app">
+        <div className="app-content">
             <div className="chat-box">
                 <h1 className="agent-header">Agent: {proxy ? proxy.name : "None"}</h1>
                 <div className="message-list">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { get_agents, create_agent, delete_agent } from '../api/fastapi/agents.js';
+import { get_agents, create_agent, delete_agent } from '../api/agents.js';
 
 function useAgentHooks() {
     const [agents, setAgents] = useState([]);
