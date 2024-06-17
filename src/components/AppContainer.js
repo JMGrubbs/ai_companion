@@ -18,7 +18,7 @@ function AppContainer() {
                     </div>
                     <div className="divider">
                         <Routes>
-                            <Route path="/" element={<ChatApp proxy={proxy} curThread={curThread} />} />
+                            <Route path="/chat" element={<ChatApp proxy={proxy} curThread={curThread} />} />
                             <Route path="/thread/:id" element={<ChatApp proxy={proxy} curThread={curThread} />} />
                             <Route path="/agent/new" element={<NewAgent />} />
                             {/* Add more routes as needed */}
