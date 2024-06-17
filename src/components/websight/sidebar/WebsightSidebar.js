@@ -16,7 +16,7 @@ const Sidebar = () => {
                             </span>
                         </Link>
                     </div>
-                    <div className={`item-holder`}>
+                    {/* <div className={`item-holder`}>
                         <Link to='/hello-world/projects' style={{ textDecoration: 'none' }}>
                             <span>
                                 <li className={`list-item`}>
@@ -42,7 +42,7 @@ const Sidebar = () => {
                                 </li>
                             </span>
                         </Link>
-                    </div>
+                    </div> */}
                 </ul>
             </div>
         </div>
