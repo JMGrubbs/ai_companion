@@ -9,29 +9,28 @@
 .dot {
   width: 5px;
   height: 5px;
-  background-color: rgb(241, 103, 24); /* Change to the desired color */
+  background-color: #393e46;
   border-radius: 50%;
-  margin: 0 2px; /* Space between dots */
+  margin: 0 2px;
 }
 
 .dropdown-menu {
   position: absolute;
   right: 0;
   top: 100%;
-  background-color: rgb(39, 39, 39);
+  background-color: #222831;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border-radius: 8px; /* Add this line for rounded corners */
+  border-radius: 8px;
 }
 
 .dropdown-menu span {
   display: block;
   padding: 8px 16px;
   text-decoration: none;
-  color: rgb(241, 103, 24); /* Change to the desired color */
+  color: #f2f2f2;
 }
 
 .dropdown-menu a:hover {
-  background-color: #716f6f; /* Change to the desired hover color */
-  border-radius: 8px; /* Add this line for rounded corners */
+  border-radius: 8px;
 }
