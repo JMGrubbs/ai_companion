@@ -4,6 +4,7 @@ import './AppRouter.css';
 import './Sidebar.css';
 import ChatAppHome from './chatapp/ChatAppHome';
 import CreateAgent from './chatapp/agents/NewAgent';
+
 import WebsightAppHome from './websight/WebsightAppHome';
 import PasswordEntry from './security/PasswordEntry';
 
@@ -50,7 +51,7 @@ const ChatAppRoutes = () => {
 const WebsightRoutes = () => {
     return (
         <Routes>
-            <Route path="/home" element={<WebsightAppHome />} />
+            <Route path="/" element={<WebsightAppHome />} />
             <Route path="/about" element={<WebsightAppHome />} />
             <Route path="/contact" element={<WebsightAppHome />} />
             <Route path="/projects" element={<WebsightAppHome />} />

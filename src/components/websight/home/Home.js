@@ -16,9 +16,9 @@ const Home = () => {
                 ></iframe>
                 <div className="home-summary">
                     <h3>SUMMARY</h3>
-                    <text>
+                    <p>
                         Experienced Full-Stack Software Engineer skilled in developing sophisticated web applications and API services using JavaScript, Python, PHP, Ruby, and SQL. Expertise in creating scalable, secure applications with a focus on performance and maintainability. Proficient in frontend frameworks like React and Angular, backend frameworks such as Flask, FastAPI, Node.js and Ruby on Rails, and SQL databases including PostgreSQL, and MySQL. Experienced with AWS for efficient, RESTful service hosting. Committed to best practices and collaborative teamwork, with a continuous pursuit of new technologies to enhance development.
-                    </text>
+                    </p>
                     <h3>SKILLS</h3>
                     <p>
                         <span>● Languages & Frameworks: Python, FastAPI, Flask, JavaScript, React, Node.js, PHP, Laravel, Ruby, Ruby on Rails</span><br />
