@@ -1,14 +1,18 @@
 import apiClient from '../../../api/api_service';
 
-// export const validatePassword = async (pass) => {
-//     try {
-//         const resposne = await apiClient.get(`/messages/${thread.thread_id}/get`)
-//             .then(response => {
-//                 return response.data["respose"]
-//             });
-//         return resposne;
-//     } catch (error) {
-//         console.error('Error fetching data using messages/get:', error);
-//         return [];
-//     }
-// };
+export const validatePassword = async (pass) => {
+    try {
+        const response = await apiClient.put(`validations/`, { "password": pass })
+            .then(response => {
+                const data = response.data
+                if (data["status"] === "success") {
+                    return data["response"]
+                }
+                return false
+            });
+        return response;
+    } catch (error) {
+        console.error('Error fetching data using messages/get:', error);
+        return [];
+    }
+};
