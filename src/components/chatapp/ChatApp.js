@@ -42,7 +42,9 @@ function ChatApp({ proxy, curThread }) {
     return (
         <div className="app-content">
             <div className="chat-box">
-                <h1 className="agent-header">Agent: {proxy ? proxy.name : "None"}</h1>
+                <div className={`agent-header`}>
+                    <span>{proxy ? proxy.name : "None"}</span>
+                </div>
                 <div className="message-list">
                     {messages.map((messageObj, index) => (
                         <Message key={index} text={messageObj.text} sender={messageObj.sender} />

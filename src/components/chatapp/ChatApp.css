@@ -1,14 +1,16 @@
 
 
 .agent-header {
+  display: flex;
+  justify-content: center;
+  height: 3vh;
 }
 
 .chat-box {
   display: flex;
   flex-direction: column;
   width: 50vw;
-  height: 100vh;
-  overflow: auto;
+  height: 97vh;
 }
 
 .message-list {

@@ -21,7 +21,6 @@ function ChatAppHome() {
 
     return (
         <div className={`app-holder`}>
-            {profile ? (<h1>Chat Application</h1>) : null}
             {profile ? (<div className={`login`}>
                 <div className={`sidebar-holder`}>
                     <Sidebar setProxy={setProxy} setCurThread={setCurThread} />

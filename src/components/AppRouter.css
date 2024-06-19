@@ -28,12 +28,12 @@
 
 .main-holder {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     padding: 10px;
     background-color: #393e46;
     box-shadow: 0 0 10px #393e46;
     color: #f2f2f2;
-    overflow-y: auto;
     height: 98vh;
     margin-left: 290px;
     flex-grow: 1;
