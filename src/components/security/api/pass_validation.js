@@ -2,11 +2,11 @@ import apiClient from '../../../api/api_service';
 
 export const validatePassword = async (pass) => {
     try {
-        const response = await apiClient.put(`validations/`, { "password": pass })
+        const response = await apiClient.put(`validations/validateuser`, { "password": pass })
             .then(response => {
                 const data = response.data
-                if (data["status"] === "success") {
-                    return data["response"]
+                if (data["response"]["validation"] === "success") {
+                    return data["response"]["key"]
                 }
                 return false
             });

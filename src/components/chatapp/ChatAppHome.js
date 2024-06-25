@@ -15,6 +15,7 @@ function ChatAppHome() {
     const handlePasswordSubmit = async (event_pass) => {
         const pass_ret = await validatePassword(event_pass)
         if (pass_ret) {
+            console.log(pass_ret)
             setProfile(pass_ret)
         }
     }
